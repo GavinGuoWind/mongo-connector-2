@@ -13,8 +13,9 @@
 # limitations under the License.
 
 import logging
-import threading
 import re
+import threading
+
 from mongo_connector import errors
 
 

@@ -17,14 +17,15 @@
 import sys
 
 from bson import timestamp
-from pymongo import errors
-
-sys.path[0:0] = [""]
-
 from mongo_connector.util import (bson_ts_to_long,
                                   long_to_bson_ts,
                                   retry_until_ok)
+from pymongo import errors
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 def err_func():

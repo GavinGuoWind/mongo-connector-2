@@ -17,8 +17,8 @@ import optparse
 import sys
 
 from mongo_connector import compat, errors
-from mongo_connector.constants import __version__
 from mongo_connector.compat import reraise
+from mongo_connector.constants import __version__
 
 
 def default_apply_function(option, cli_values):
@@ -99,6 +99,9 @@ class Config(object):
             for args, kwargs in option.cli_options:
                 cli_option = parser.add_option(*args, **kwargs)
                 option.cli_names.append(cli_option.dest)
+                
+#        argv = ["--auto-commit-interval=1", "-dsolr_doc_manager", "-m192.168.1.100:27017", "-nkxlist_list.quotelist", "-t http://192.168.1.100:8983/solr/user"]
+    
         parsed_options, args = parser.parse_args(argv)
         if args:
             raise errors.InvalidConfiguration(

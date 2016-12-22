@@ -1,6 +1,6 @@
 import gridfs
-
 from mongo_connector import errors, util
+
 
 wrap_exceptions = util.exception_wrapper({
     gridfs.errors.CorruptGridFile: errors.OperationFailed

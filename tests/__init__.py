@@ -15,6 +15,7 @@
 import logging
 import sys
 
+
 logging.basicConfig(stream=sys.stdout)
 
 if sys.version_info[0] == 3:

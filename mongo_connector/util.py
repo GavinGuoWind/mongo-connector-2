@@ -20,8 +20,8 @@ import sys
 import time
 
 from bson.timestamp import Timestamp
-
 from mongo_connector.compat import reraise
+
 
 LOG = logging.getLogger(__name__)
 

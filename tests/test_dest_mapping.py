@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tests import unittest
-from mongo_connector.dest_mapping import DestMapping
 from mongo_connector import errors
+from mongo_connector.dest_mapping import DestMapping
+from tests import unittest
 
 
 class TestDestMapping(unittest.TestCase):

@@ -14,6 +14,7 @@
 """Discovers the MongoDB cluster and starts the connector.
 """
 
+import common
 import json
 import logging
 import logging.handlers
@@ -418,7 +419,7 @@ def get_config_options():
 
     main_address = add_option(
         config_key="mainAddress",
-        default="localhost:27017",
+        default="192.168.1.100:27017",
         type=str)
 
     # -m is for the main address, which is a host:port pair, ideally of the
@@ -458,7 +459,7 @@ def get_config_options():
 
     no_dump = add_option(
         config_key="noDump",
-        default=False,
+        default=True,
         type=bool)
 
     # --no-dump specifies whether we should read an entire collection from
@@ -803,7 +804,7 @@ def get_config_options():
                 "GridFS set should not contain any duplicates.")
 
     default_namespaces = {
-        "include": [],
+        "include": ["kxlist_list.quotelist"],
         "exclude": [],
         "mapping": {},
         "gridfs": []

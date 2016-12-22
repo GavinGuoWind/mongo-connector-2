@@ -19,13 +19,15 @@ import os
 import sys
 import time
 
-sys.path[0:0] = [""]
-
 from mongo_connector.connector import Connector
 from mongo_connector.test_utils import (assert_soon,
                                         connector_opts,
                                         ReplicaSetSingle)
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestSynchronizer(unittest.TestCase):

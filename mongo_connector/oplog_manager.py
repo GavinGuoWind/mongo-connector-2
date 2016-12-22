@@ -15,25 +15,28 @@
 """Tails the oplog of a shard and returns entries
 """
 
-import bson
 import logging
-try:
-    import Queue as queue
-except ImportError:
-    import queue
-import sys
-import time
-import threading
 import re
+import sys
+import threading
+import time
 
-import pymongo
-
-from pymongo import CursorType, errors as pymongo_errors
-
+import bson
 from mongo_connector import errors, util
 from mongo_connector.constants import DEFAULT_BATCH_SIZE
 from mongo_connector.gridfs_file import GridFSFile
 from mongo_connector.util import log_fatal_exceptions, retry_until_ok
+from pymongo import CursorType, errors as pymongo_errors
+import pymongo
+
+
+try:
+    import Queue as queue
+except ImportError:
+    import queue
+
+
+
 
 LOG = logging.getLogger(__name__)
 

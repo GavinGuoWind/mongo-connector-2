@@ -22,18 +22,19 @@ import time
 
 from bson import SON
 from gridfs import GridFS
-
-sys.path[0:0] = [""]
-
-from mongo_connector.doc_managers.mongo_doc_manager import DocManager
 from mongo_connector.connector import Connector
-from mongo_connector.util import retry_until_ok
+from mongo_connector.doc_managers.mongo_doc_manager import DocManager
 from mongo_connector.test_utils import (ReplicaSet,
                                         Server,
                                         connector_opts,
                                         assert_soon,
                                         close_client)
+from mongo_connector.util import retry_until_ok
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class MongoTestCase(unittest.TestCase):

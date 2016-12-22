@@ -16,8 +16,6 @@ import os
 import sys
 import time
 
-sys.path[0:0] = [""]
-
 from mongo_connector.connector import Connector
 from mongo_connector.doc_managers.doc_manager_simulator import DocManager
 from mongo_connector.test_utils import (assert_soon,
@@ -25,6 +23,10 @@ from mongo_connector.test_utils import (assert_soon,
                                         db_password,
                                         ShardedClusterSingle)
 from tests import unittest, SkipTest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestConnectorSharded(unittest.TestCase):

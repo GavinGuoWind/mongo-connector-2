@@ -17,14 +17,16 @@
 
 import sys
 
-sys.path[0:0] = [""]
-
-from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.command_helper import CommandHelper
+from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.doc_managers.mongo_doc_manager import DocManager
 from mongo_connector.test_utils import TESTARGS, MockGridFSFile
 from tests import unittest
 from tests.test_mongo import MongoTestCase
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestMongoDocManager(MongoTestCase):

@@ -1,18 +1,19 @@
 import base64
 import datetime
-import re
-
-from uuid import UUID
-from math import isnan, isinf
-
 import logging
-LOG = logging.getLogger(__name__)
-
+from math import isnan, isinf
+import re
+from uuid import UUID
 
 import bson
 import bson.json_util
-
 from mongo_connector.compat import PY3
+
+
+LOG = logging.getLogger(__name__)
+
+
+
 
 if PY3:
     long = int

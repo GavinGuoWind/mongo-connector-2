@@ -14,9 +14,9 @@
 
 import atexit
 import itertools
-import time
 import os
 import sys
+import time
 
 import pymongo
 import requests
@@ -39,7 +39,8 @@ STRESS_COUNT = 100
 # Test namespace, timestamp arguments
 TESTARGS = ('test.test', 1)
 
-_mo_address = os.environ.get("MO_ADDRESS", "localhost:8889")
+_mo_address = os.environ.get("MO_ADDRESS", "192.168.1.100:8983")
+# """localhost:8889 """
 _mongo_start_port = int(os.environ.get("MONGO_PORT", 27017))
 _free_port = itertools.count(_mongo_start_port)
 
@@ -90,7 +91,7 @@ class MCTestObject(object):
         if not ret.ok:
             raise RuntimeError(
                 "Error sending POST to cluster: %s" % (ret.text,))
-
+#        ret.text = '{"a":"b"}'
         ret = ret.json()
         if type(ret) == list:  # Will return a list if an error occurred.
             raise RuntimeError("Error sending POST to cluster: %s" % (ret,))
@@ -141,7 +142,8 @@ class Server(MCTestObject):
 
 class ReplicaSet(MCTestObject):
 
-    _resource = 'replica_sets'
+    _resource = 'solr/admin/cores?action=STATUS'
+#     'replica_sets'
 
     def __init__(self, id=None, uri=None, primary=None, secondary=None,
                  **kwargs):

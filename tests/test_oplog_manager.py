@@ -21,19 +21,20 @@ import sys
 import time
 
 import bson
-import pymongo
-
-sys.path[0:0] = [""]
-
+from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.doc_managers.doc_manager_simulator import DocManager
 from mongo_connector.locking_dict import LockingDict
-from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.oplog_manager import OplogThread
 from mongo_connector.test_utils import (assert_soon,
                                         close_client,
                                         ReplicaSetSingle)
 from mongo_connector.util import bson_ts_to_long
+import pymongo
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestOplogManager(unittest.TestCase):

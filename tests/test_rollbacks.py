@@ -21,21 +21,22 @@ import os
 import sys
 import time
 
-from pymongo.read_preferences import ReadPreference
-from pymongo.write_concern import WriteConcern
-
-sys.path[0:0] = [""]
-
+from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.doc_managers.doc_manager_simulator import DocManager
 from mongo_connector.locking_dict import LockingDict
-from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.oplog_manager import OplogThread
 from mongo_connector.test_utils import (assert_soon,
                                         close_client,
                                         ReplicaSet,
                                         STRESS_COUNT)
 from mongo_connector.util import retry_until_ok
+from pymongo.read_preferences import ReadPreference
+from pymongo.write_concern import WriteConcern
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestRollbacks(unittest.TestCase):

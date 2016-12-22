@@ -29,12 +29,14 @@ Operating System :: Microsoft :: Windows
 Operating System :: POSIX
 """
 
-import os
-import platform
-import sys
 from distutils.core import Command
 from distutils.dir_util import mkpath, remove_tree
 from distutils.file_util import copy_file
+import os
+import platform
+import sys
+
+
 try:
     from setuptools import setup
 except ImportError:

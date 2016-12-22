@@ -24,9 +24,10 @@ implementation with real systems.
 from threading import RLock
 
 from mongo_connector import constants
-from mongo_connector.errors import OperationFailed
-from mongo_connector.doc_managers.doc_manager_base import DocManagerBase
 from mongo_connector.compat import u
+from mongo_connector.doc_managers.doc_manager_base import DocManagerBase
+from mongo_connector.errors import OperationFailed
+
 
 __version__ = constants.__version__
 """DocManager Simulator version information
@@ -100,7 +101,8 @@ class DocManager(DocManagerBase):
         self.unique_key = unique_key
         self.auto_commit_interval = auto_commit_interval
         self.doc_dict = DocumentStore()
-        self.url = url
+#        self.url = url
+        self.url = '192.168.1.100:8983/solr/user'
         self.chunk_size = chunk_size
         self.kwargs = kwargs
 

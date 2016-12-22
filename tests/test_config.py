@@ -18,13 +18,15 @@ import os
 import re
 import sys
 
-sys.path[0:0] = [""]
-
 from mongo_connector import config, errors, connector
 from mongo_connector.connector import get_config_options, setup_logging
 from mongo_connector.doc_managers import doc_manager_simulator
-
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
+
 
 from_here = lambda *paths: os.path.join(
     os.path.abspath(os.path.dirname(__file__)), *paths)

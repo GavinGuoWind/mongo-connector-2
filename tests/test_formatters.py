@@ -18,13 +18,14 @@ import sys
 import uuid
 
 import bson
-
-sys.path[0:0] = [""]
-
 from mongo_connector.compat import PY3
 from mongo_connector.doc_managers.formatters import (
     DefaultDocumentFormatter, DocumentFlattener)
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestFormatters(unittest.TestCase):

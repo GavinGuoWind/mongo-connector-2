@@ -17,19 +17,21 @@
 
 import sys
 
-sys.path[0:0] = [""]
-
-import pymongo
-
-from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.command_helper import CommandHelper
+from mongo_connector.dest_mapping import DestMapping
 from mongo_connector.doc_managers.doc_manager_base import DocManagerBase
 from mongo_connector.locking_dict import LockingDict
 from mongo_connector.oplog_manager import OplogThread
 from mongo_connector.test_utils import (assert_soon,
                                         close_client,
                                         ReplicaSetSingle)
+import pymongo
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
+
 
 
 class CommandLoggerDocManager(DocManagerBase):

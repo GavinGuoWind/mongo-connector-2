@@ -15,13 +15,14 @@
 import sys
 
 import gridfs
-
-sys.path[0:0] = [""]
-
 from mongo_connector import errors
 from mongo_connector.gridfs_file import GridFSFile
 from mongo_connector.test_utils import ReplicaSetSingle, close_client
 from tests import unittest
+
+
+sys.path[0:0] = [""]
+
 
 
 class TestGridFSFile(unittest.TestCase):

@@ -22,14 +22,14 @@
     """
 
 import logging
-import pymongo
 
 from bson import SON
 from gridfs import GridFS
-
 from mongo_connector import errors, constants
-from mongo_connector.util import exception_wrapper
 from mongo_connector.doc_managers.doc_manager_base import DocManagerBase
+from mongo_connector.util import exception_wrapper
+import pymongo
+
 
 wrap_exceptions = exception_wrapper({
     pymongo.errors.ConnectionFailure: errors.ConnectionFailed,
@@ -64,8 +64,8 @@ class DocManager(DocManagerBase):
         """ Verify URL and establish a connection.
         """
         try:
-            self.mongo = pymongo.MongoClient(
-                url, **kwargs.get('clientOptions', {}))
+#            self.mongo = pymongo.MongoClient(url, **kwargs.get('clientOptions', {}))
+            self.mongo = pymongo.MongoClient(url, **kwargs.get('clientOptions', {}))
         except pymongo.errors.InvalidURI:
             raise errors.ConnectionFailed("Invalid URI for MongoDB")
         except pymongo.errors.ConnectionFailure:
